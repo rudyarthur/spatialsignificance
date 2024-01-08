@@ -349,8 +349,11 @@ def pearson(x, y):
 #Compute the p-value of r given an estimate of the distribution rs = [ estimate1, estimate2, ... ]		
 def pval(rs, r, alt="greater", smooth=0):
 	larger = (np.array(rs) >= r).sum()
-	if alt == "two-tailed" and (len(rs) - larger) < larger: larger = len(rs) - larger
-	return (larger + smooth) / (len(rs) + smooth)
+	f = 1
+	if alt == "two-sided" and (len(rs) - larger) < larger: 
+		larger = len(rs) - larger
+		f = 2
+	return f*(larger + smooth) / (len(rs) + smooth)
 
 
 
