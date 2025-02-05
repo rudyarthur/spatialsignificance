@@ -1,6 +1,6 @@
-import sys
-sys.path.append('../src/')
 import numpy as np
+import sys
+sys.path.append('../src')
 import spatialsignificance as sp
 from gen_randomfield import gen_randomfield
 from scipy.stats import kendalltau
@@ -12,17 +12,16 @@ x1 = gen_randomfield(alpha=1.5, size=size)
 x2 = gen_randomfield(alpha=1.5, size=size)
 
 ##plot it if you want
-import matplotlib.pyplot as plt
-plt.imshow(x1, cmap="RdBu")
-plt.savefig("example.png")
-plt.show()
-plt.close()
+#import matplotlib.pyplot as plt
+#plt.imshow(example)
+#plt.show()
 
 #Methods expect 1d lists
 x1 = x1.flatten()
 x2 = x2.flatten()
 
 #Figure out the spatial weight matrix
+# Allowed neightbour types "r" = rook, "q" = queen
 grid = sp.grid_neighbours( size, size, nbrtype="q" )
 #If you have a list of shapely polygons use
 #grid = sp.poly_neighbours( list_of_geometries )
@@ -31,7 +30,7 @@ grid = sp.grid_neighbours( size, size, nbrtype="q" )
 mi1 = sp.moran(grid, x1)
 mi2 = sp.moran(grid, x2)
 
-#compate statistic
+#compare statistic
 kr = kendalltau(x1, x2, alternative="greater")
 r = kr.correlation
 print("Kendall tau =", r)

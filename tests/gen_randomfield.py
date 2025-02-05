@@ -2,6 +2,8 @@ import numpy as np
 import scipy.stats as stats
 from scipy.stats import linregress
 import matplotlib.pyplot as plt
+import sys
+sys.path.append('../src')
 import spatialsignificance as sp
 
 
