@@ -1,6 +1,6 @@
 [project]
 name = "spatialsignificance"
-version = "0.0.2"
+version = "VERSION_NUMBER"
 authors = [
   { name="Rudy Arthur", email="rudy.d.arthur@gmail.com" },
 ]
