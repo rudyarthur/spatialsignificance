@@ -3,7 +3,7 @@ from Cython.Build import cythonize
 import numpy
 
 extensions = [
-    Extension("spatialsignificance", ["src/spatialsignificance.pyx"], define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],include_dirs=[numpy.get_include()]),
+    Extension("spatialsignificance", ["src/spatialsignificance.pyx"], define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],include_dirs=[numpy.get_include()], language='c++'),
 ]
 setup(
    packages=find_packages(where="src"), 
