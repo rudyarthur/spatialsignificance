@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../src/')
 import numpy as np
 import spatialsignificance as sp
 from gen_randomfield import gen_randomfield
@@ -10,9 +12,11 @@ x1 = gen_randomfield(alpha=1.5, size=size)
 x2 = gen_randomfield(alpha=1.5, size=size)
 
 ##plot it if you want
-#import matplotlib.pyplot as plt
-#plt.imshow(example)
-#plt.show()
+import matplotlib.pyplot as plt
+plt.imshow(x1, cmap="RdBu")
+plt.savefig("example.png")
+plt.show()
+plt.close()
 
 #Methods expect 1d lists
 x1 = x1.flatten()
